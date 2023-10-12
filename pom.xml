@@ -23,7 +23,7 @@
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
-            <version>3.8.11.2</version> <!-- Sử dụng phiên bản phù hợp -->
+            <version>3.43.0.0</version> <!-- Sử dụng phiên bản phù hợp -->
         </dependency>
     </dependencies>
 </project>
