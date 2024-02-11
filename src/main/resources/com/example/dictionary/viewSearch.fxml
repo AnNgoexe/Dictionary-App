@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane fx:id="viewSearchAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ViewSearchController">
+   <children>
+      <AnchorPane prefHeight="55.0" prefWidth="474.0" style="-fx-background-color: #D3D3D3;">
+         <children>
+            <Button fx:id="soundButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#playSound" prefHeight="55.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.topAnchor="0.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/speaker.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip fx:id="pronunciationToolTip" text="Phát âm từ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <Button fx:id="editButton" contentDisplay="GRAPHIC_ONLY" layoutX="56.0" layoutY="6.0" mnemonicParsing="false" onAction="#editWord" prefHeight="42.0" prefWidth="44.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/editSymbol.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip fx:id="editToolTip" text="Sửa từ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+            <Button fx:id="removeButton" contentDisplay="GRAPHIC_ONLY" layoutX="104.0" layoutY="8.0" mnemonicParsing="false" onAction="#removeWord" prefHeight="24.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="8.0">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/trash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip fx:id="removeToolTip" text="Xóa từ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Tooltip>
+               </tooltip>
+            </Button>
+            <Button fx:id="favoriteButton" layoutX="161.0" layoutY="8.0" mnemonicParsing="false" onAction="#setFavoriteWord" prefHeight="28.0" prefWidth="28.0" stylesheets="@style.css" AnchorPane.topAnchor="13.0">
+               <tooltip>
+                  <Tooltip fx:id="favoriteToolTip" text="Thêm vào từ yêu thích">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Tooltip>
+               </tooltip></Button>
+         </children>
+      </AnchorPane>
+      <WebView fx:id="webView" layoutY="52.0" onDragDetected="#viewWordController" prefHeight="521.0" prefWidth="474.0" />
+   </children>
+</AnchorPane>

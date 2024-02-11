@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #33FF4E;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.FavoriteController">
+   <children>
+      <AnchorPane prefHeight="520.0" prefWidth="315.0" style="-fx-border-color: black; -fx-background-color: #D3FF33;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <TextField fx:id="searchFavoriteBar" layoutX="14.0" layoutY="13.0" prefHeight="34.0" prefWidth="224.0" promptText="Search Something....." style="-fx-border-color: black; -fx-cursor: text;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></TextField>
+            <ListView fx:id="listFavoriteWord" layoutX="14.0" layoutY="51.0" onEditStart="#listFavoriteWordView" prefHeight="509.0" prefWidth="288.0" style="-fx-border-color: black;" styleClass="list_view_search" />
+            <Button fx:id="searchFavoriteButton" layoutX="236.0" layoutY="13.0" mnemonicParsing="false" onAction="#searchFavoriteWord" prefHeight="34.0" prefWidth="67.0" style="-fx-border-color: #000000;" text="Search">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <tooltip>
+                  <Tooltip fx:id="searchFavoriteToolTip" text="Tìm kiếm">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip></Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="searchFavoriteAnchorPane" layoutX="347.0" layoutY="20.0" prefHeight="576.0" prefWidth="474.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>
