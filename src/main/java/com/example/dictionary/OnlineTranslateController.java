@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

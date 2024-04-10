@@ -2,12 +2,13 @@ package base;
 
 import java.io.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+
+import base.databaseconnection.SQLiteConnection;
 import trie.Trie;
 
 public class Dictionary {
@@ -15,28 +16,15 @@ public class Dictionary {
      * Attributes of Dictionary class.
      */
     private static Dictionary dictionary;
-    private HashMap<String, String> wordMap = new HashMap<>();
-    private Trie trie = new Trie();
-    private Connection connection;
-    private boolean isConnected = false;
-
-    /**
-     * Constructor method of Dictionary class.
-     */
-    private Dictionary() {
-
-    }
+    protected HashMap<String, String> wordMap = new HashMap<>();
+    protected Trie trie = new Trie();
+    protected Connection connection;
 
     /**
      * Connect to the database.
      */
-    private void connectToDatabase() {
-        try {
-            connection = DriverManager.getConnection("jdbc:sqlite:E:\\demo\\src\\main\\resources\\data\\Vocabulary.db");
-            isConnected = true;
-        } catch (SQLException e) {
-            System.out.println("Error Dictionary connecting to the database: " + e.getMessage());
-        }
+    public void connectToDatabase() {
+        this.connection = SQLiteConnection.getInstance().getConnection();
     }
 
     /**
@@ -74,7 +62,7 @@ public class Dictionary {
     /**
      * Add a word to the dictionary.
      */
-    public boolean addWordForDictionary(String wordTarget, String wordExplain) {
+    public void addWordForDictionary(String wordTarget, String wordExplain) {
         if (!searchWord(wordTarget)) {
             try {
                 String sql = "INSERT INTO av (word, html) VALUES (?, ?)";
@@ -86,12 +74,10 @@ public class Dictionary {
                 Word word = new Word(wordTarget, wordExplain);
                 this.wordMap.put(word.getWordTarget(), word.getWordExplain());
                 this.trie.insert(word.getWordTarget());
-                return true;
-            } catch (SQLException e) {
-                return false;
+            } catch (SQLException ignored) {
+
             }
         }
-        return false;
     }
 
     /**
@@ -117,7 +103,7 @@ public class Dictionary {
     /**
      * Remove a word from the dictionary.
      */
-    public boolean removeWord(String wordTarget) {
+    public void removeWord(String wordTarget) {
         if (searchWord(wordTarget)) {
             try {
                 String sql = "DELETE FROM av WHERE word = ?";
@@ -127,18 +113,15 @@ public class Dictionary {
 
                 this.wordMap.remove(wordTarget);
                 this.trie.delete(wordTarget);
-                return true;
-            } catch (SQLException e) {
-                return false;
+            } catch (SQLException ignored) {
             }
         }
-        return false;
     }
 
     /**
      * Update a word in the dictionary.
      */
-    public boolean updateWord(String oldWord, String wordExplain) {
+    public void updateWord(String oldWord, String wordExplain) {
         if (searchWord(oldWord) && !oldWord.trim().isEmpty()) {
             if (!wordExplain.trim().isEmpty()) {
                 try {
@@ -150,19 +133,16 @@ public class Dictionary {
 
                     Word word = new Word(oldWord, wordExplain);
                     this.wordMap.put(word.getWordTarget(), word.getWordExplain());
-                    return true;
-                } catch (SQLException e) {
-                    return false;
+                } catch (SQLException ignored) {
                 }
             }
         }
-        return false;
     }
 
     /**
      * Export the dictionary to a file.
      */
-    public boolean dictionaryExportToFile(String filePath) {
+    public void dictionaryExportToFile(String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (HashMap.Entry<String, String> entry : wordMap.entrySet()) {
                 String key = entry.getKey();
@@ -171,9 +151,7 @@ public class Dictionary {
                 writer.write(word.toString());
                 writer.newLine();
             }
-            return true;
-        } catch (IOException e) {
-            return false;
+        } catch (IOException ignored) {
         }
     }
 
@@ -188,14 +166,7 @@ public class Dictionary {
      * Close connection to database.
      */
     public void closeConnection() {
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-                isConnected = false;
-            }
-        } catch (SQLException e) {
-            System.out.println("Error closing the database connection: " + e.getMessage());
-        }
+        SQLiteConnection.getInstance().closeConnection();
     }
 
     /**

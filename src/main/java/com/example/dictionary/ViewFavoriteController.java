@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import api.AudioPlay;
 import base.MyDictionary;
@@ -53,9 +53,9 @@ public class ViewFavoriteController {
         viewFavoriteAnchorPane.getChildren().clear();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText("Trạng thái xóa từ yêu thích ra khỏi từ điển:");
-        alert.setContentText("Đã xóa thành công !");
+        alert.setTitle("Notification!");
+        alert.setHeaderText("Removing a favorite word:");
+        alert.setContentText("Successfully deleted a favorite word from the dictionary.");
         alert.showAndWait();
     }
 

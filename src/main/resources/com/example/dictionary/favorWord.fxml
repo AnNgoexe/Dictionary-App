@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #33FF4E;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.FavoriteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #33FF4E;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.FavoriteController">
    <children>
       <AnchorPane prefHeight="520.0" prefWidth="315.0" style="-fx-border-color: black; -fx-background-color: #D3FF33;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
-            <TextField fx:id="searchFavoriteBar" layoutX="14.0" layoutY="13.0" prefHeight="34.0" prefWidth="224.0" promptText="Search Something....." style="-fx-border-color: black; -fx-cursor: text;">
+            <TextField fx:id="searchFavoriteBar" layoutX="14.0" layoutY="13.0" prefHeight="34.0" prefWidth="224.0" promptText="Search something....." style="-fx-border-color: black; -fx-cursor: text;">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></TextField>
@@ -19,7 +19,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <tooltip>
-                  <Tooltip fx:id="searchFavoriteToolTip" text="Tìm kiếm">
+                  <Tooltip fx:id="searchFavoriteToolTip" text="Search">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

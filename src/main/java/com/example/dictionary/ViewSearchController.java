@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import api.AudioPlay;
 import base.Dictionary;
@@ -94,9 +94,9 @@ public class ViewSearchController {
             favoriteButton.setStyle("-fx-background-color: transparent;");
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thông báo");
-            alert.setHeaderText("Trạng thái xóa khỏi danh sách các từ đã học:");
-            alert.setContentText("Đã xóa thành công !");
+            alert.setTitle("Notification");
+            alert.setHeaderText("Status of removing from the learned words list:");
+            alert.setContentText("Successfully removed!");
             alert.showAndWait();
         } else {
             MyDictionary.getDictionary().addWord(wordTarget, wordExplain);
@@ -104,9 +104,9 @@ public class ViewSearchController {
             favoriteButton.setStyle("-fx-background-color: rgb(209, 5, 39);");
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thông báo");
-            alert.setHeaderText("Trạng thái thêm vào danh sách các từ đã học:");
-            alert.setContentText("Đã thêm thành công !");
+            alert.setTitle("Notification");
+            alert.setHeaderText("Status of adding to the learned words list:");
+            alert.setContentText("Successfully added!");
             alert.showAndWait();
         }
     }
@@ -117,9 +117,9 @@ public class ViewSearchController {
         viewSearchAnchorPane.getChildren().clear();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText("Trạng thái xóa từ vừa tra cứu ra khỏi từ điển:");
-        alert.setContentText("Đã xóa thành công !");
+        alert.setTitle("Notification!");
+        alert.setHeaderText("Status of removing the recently looked-up word from the dictionary:");
+        alert.setContentText("Successfully deleted!");
         alert.showAndWait();
     }
 
@@ -139,9 +139,9 @@ public class ViewSearchController {
         MyDictionary.getDictionary().updateWord(wordTarget, newWordExplain);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText("Thông báo:");
-        alert.setContentText("Bạn đã sửa thành công.");
+        alert.setTitle("Notification!");
+        alert.setHeaderText("Edit:");
+        alert.setContentText("You have successfully edited the information of a word.");
         alert.showAndWait();
     }
 

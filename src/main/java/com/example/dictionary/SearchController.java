@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import base.Dictionary;
 import base.MyDictionary;
@@ -9,10 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -100,6 +97,11 @@ public class SearchController implements Initializable {
 
         } else {
             searchAnchorPane.getChildren().setAll(new AnchorPane());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Notification!");
+            alert.setHeaderText("Non-existence:");
+            alert.setContentText("This word does not exist in the dictionary.");
+            alert.showAndWait();
         }
     }
 

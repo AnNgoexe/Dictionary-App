@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="fileChooseView" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFB6C1; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ExportToFileController">
+<AnchorPane fx:id="fileChooseView" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFB6C1; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ExportToFileController">
     <children>
         <AnchorPane prefHeight="85.0" prefWidth="833.0" style="-fx-background-color: #33FFFF; -fx-border-color: #000000;">
             <children>
-                <Label layoutX="223.0" layoutY="16.0" prefHeight="53.0" prefWidth="388.0" text="Lấy dữ liệu của từ điển">
+                <Label layoutX="52.0" layoutY="15.0" prefHeight="54.0" prefWidth="729.0" text="Get the data from the dictionary database">
                     <font>
                         <Font name="System Bold" size="36.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="58.0" layoutY="203.0" text="Chọn file txt để lưu dữ liệu từ điển :">
+        <Label layoutX="58.0" layoutY="203.0" text="Choose a txt file to export the data:">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Label>
         <TextField fx:id="dictionaryExportToFileBar" layoutX="58.0" layoutY="249.0" prefHeight="25.0" prefWidth="574.0" />
-        <Label layoutX="58.0" layoutY="290.0" text="Chọn file txt để lưu dữ liệu danh sách các từ đã học:">
+        <Label layoutX="58.0" layoutY="290.0" text="Choose a txt file to export words you learned:">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
@@ -36,7 +33,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
          <tooltip>
-            <Tooltip fx:id="selectDictionaryToolTip" text="Chọn file bạn muốn">
+            <Tooltip fx:id="selectDictionaryToolTip" text="Choose file you want">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -48,7 +45,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
          <tooltip>
-            <Tooltip fx:id="selectMyDictionaryToolTip" text="Chọn file bạn muốn">
+            <Tooltip fx:id="selectMyDictionaryToolTip" text="Choose file you want">
                <font>
                   <Font size="18.0" />
                </font>

@@ -5,21 +5,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFDCE3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFDCE3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.SearchController">
    <children>
-      <AnchorPane prefHeight="520.0" prefWidth="315.0" style="-fx-border-color: black; -fx-background-color: #33FFFF;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane prefHeight="576.0" prefWidth="315.0" style="-fx-border-color: black; -fx-background-color: #33FFFF;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <TextField fx:id="searchBar" layoutX="14.0" layoutY="13.0" prefHeight="34.0" prefWidth="224.0" promptText="Search Something....." style="-fx-border-color: black; -fx-cursor: text;">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></TextField>
-            <ListView fx:id="listWord" layoutX="14.0" layoutY="51.0" onEditStart="#listWordView" prefHeight="509.0" prefWidth="288.0" style="-fx-border-color: black;" styleClass="list_view_search" />
+            <ListView fx:id="listWord" layoutX="14.0" layoutY="51.0" onEditStart="#listWordView" prefHeight="517.0" prefWidth="288.0" style="-fx-border-color: black;" styleClass="list_view_search" />
             <Button fx:id="searchButton" layoutX="236.0" layoutY="13.0" mnemonicParsing="false" onAction="#searchWord" prefHeight="34.0" prefWidth="67.0" style="-fx-border-color: #000000;" text="Search">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <tooltip>
-                  <Tooltip fx:id="searchToolTip" text="Tìm kiếm">
+                  <Tooltip fx:id="searchToolTip" text="Search">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

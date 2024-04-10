@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +14,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SceneController implements Initializable {
+    @FXML
+    private Button ASButton;
+
+    @FXML
+    private Tooltip aSToolTip;
 
     @FXML
     private ResourceBundle resources;
@@ -67,6 +72,7 @@ public class SceneController implements Initializable {
         editWordToolTip.setShowDelay(Duration.ZERO);
         favoriteToolTip.setShowDelay(Duration.ZERO);
         onlineTranslateToolTip.setShowDelay(Duration.ZERO);
+        aSToolTip.setShowDelay(Duration.ZERO);
     }
 
     @Override
@@ -112,6 +118,13 @@ public class SceneController implements Initializable {
     @FXML
     public void favoriteView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("favorWord.fxml"));
+        AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().setAll(secondaryAnchorPane);
+    }
+
+    @FXML
+    public void synonymsAntonymsView(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("showASWord.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }

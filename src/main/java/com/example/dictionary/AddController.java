@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import base.Dictionary;
 import javafx.animation.PauseTransition;
@@ -42,22 +42,22 @@ public class AddController {
 
         if (wordTarget.isEmpty() || wordExplain.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Cảnh báo!");
-            alert.setHeaderText("Cảnh báo:");
-            alert.setContentText("Bạn phải hoàn thành cả 2 mục để thêm từ thành công");
+            alert.setTitle("Warning!");
+            alert.setHeaderText("Incomplete Fields:");
+            alert.setContentText("You must complete both fields to successfully add a word");
             alert.showAndWait();
         } else if (Dictionary.getDictionary().searchWord(wordTarget)) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Cảnh báo!");
-            alert.setHeaderText("Cảnh báo:");
-            alert.setContentText("Từ mà bạn muốn thêm đã có trong từ điển.");
+            alert.setTitle("Warning!");
+            alert.setHeaderText("Word Exists:");
+            alert.setContentText("The word you want to add is already in the dictionary.");
             alert.showAndWait();
         } else {
             Dictionary.getDictionary().addWordForDictionary(wordTarget, wordExplain);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thông báo!");
-            alert.setHeaderText("Thông báo:");
-            alert.setContentText("Bạn đã thêm từ thành công vào từ điển.");
+            alert.setTitle("Notification!");
+            alert.setHeaderText("Success:");
+            alert.setContentText("You have successfully added the word to the dictionary.");
             alert.showAndWait();
         }
     }

@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="fileChooseView" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFB6C1; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ImportFromFileController">
+<AnchorPane fx:id="fileChooseView" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFB6C1; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ImportFromFileController">
     <children>
         <AnchorPane prefHeight="85.0" prefWidth="833.0" style="-fx-background-color: #33FFFF; -fx-border-color: #000000;">
             <children>
-                <Label layoutX="208.0" layoutY="15.0" prefHeight="54.0" prefWidth="433.0" text="Thêm dữ liệu vào từ điển">
+                <Label layoutX="55.0" layoutY="15.0" prefHeight="54.0" prefWidth="727.0" text="Add more data to the dictionary database">
                     <font>
                         <Font name="System Bold" size="36.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="157.0" layoutY="203.0" text="Chọn file txt để thêm vào cơ sở dữ liệu từ điển :">
+        <Label layoutX="157.0" layoutY="203.0" text="Choose file txt to add data to dictionary database:">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
@@ -27,7 +27,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
             <tooltip>
-                <Tooltip fx:id="selectFileToolTip" text="Chọn file bạn muốn">
+                <Tooltip fx:id="selectFileToolTip" text="Choose file you want">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>

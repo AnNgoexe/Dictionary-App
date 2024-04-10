@@ -1,4 +1,4 @@
-package com.example.dictionary;
+package com.controller;
 
 import base.MyDictionary;
 import javafx.animation.PauseTransition;

@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane fx:id="viewFavoriteAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ViewFavoriteController">
+<AnchorPane fx:id="viewFavoriteAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ViewFavoriteController">
    <children>
       <AnchorPane prefHeight="55.0" prefWidth="474.0" style="-fx-background-color: #D3D3D3;">
          <children>
@@ -19,7 +19,7 @@
                   </ImageView>
                </graphic>
                <tooltip>
-                  <Tooltip fx:id="pronunciationToolTip" text="Phát âm từ">
+                  <Tooltip fx:id="pronunciationToolTip" text="Pronounce">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -35,7 +35,7 @@
                   </ImageView>
                </graphic>
                <tooltip>
-                  <Tooltip fx:id="removeToolTip" text="Xóa từ">
+                  <Tooltip fx:id="removeToolTip" text="Delete">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font></Tooltip>

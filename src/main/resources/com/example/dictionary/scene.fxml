@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="888.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="888.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.SceneController">
     <children>
         <AnchorPane prefHeight="62.0" prefWidth="888.0" style="-fx-background-color: gold;">
             <children>
@@ -29,16 +29,16 @@
             </cursor></AnchorPane>
         <AnchorPane layoutY="61.0" prefHeight="616.0" prefWidth="55.0" style="-fx-background-color: #ADD8E6;">
             <children>
-                <Button fx:id="likeButton" layoutY="128.0" mnemonicParsing="false" onAction="#favoriteView" prefHeight="50.0" prefWidth="23.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <Button fx:id="likeButton" layoutY="121.0" mnemonicParsing="false" onAction="#favoriteView" prefHeight="50.0" prefWidth="23.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                     <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../../image/bookmark.png" />
+                                <Image url="@../../../image/starfilled.png" />
                             </image>
                         </ImageView>
                     </graphic>
                <tooltip>
-                  <Tooltip fx:id="favoriteToolTip" text="Tra cứu từ bạn yêu thích">
+                  <Tooltip fx:id="favoriteToolTip" text="Search a word you bookmarked">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font></Tooltip>
@@ -52,13 +52,13 @@
                         </ImageView>
                     </graphic>
                     <tooltip>
-                        <Tooltip fx:id="searchWordToolTip" text="Tra cứu">
+                        <Tooltip fx:id="searchWordToolTip" text="Search">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Tooltip>
                     </tooltip></Button>
-                <Button fx:id="addButton" layoutY="64.0" mnemonicParsing="false" onAction="#addView" prefHeight="42.0" prefWidth="51.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <Button fx:id="addButton" layoutY="62.0" mnemonicParsing="false" onAction="#addView" prefHeight="42.0" prefWidth="51.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -67,13 +67,13 @@
                         </ImageView>
                     </graphic>
                     <tooltip>
-                        <Tooltip fx:id="addWordToolTip" text="Thêm từ vào từ điển">
+                        <Tooltip fx:id="addWordToolTip" text="Add a word into the dictionary">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Tooltip>
                     </tooltip></Button>
-                <Button fx:id="onlineTranslateButton" layoutY="201.0" mnemonicParsing="false" onAction="#onlineTranslateView" prefHeight="46.0" prefWidth="41.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <Button fx:id="onlineTranslateButton" layoutX="1.0" layoutY="192.0" mnemonicParsing="false" onAction="#onlineTranslateView" prefHeight="46.0" prefWidth="41.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
                     <graphic>
                         <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -82,13 +82,13 @@
                         </ImageView>
                     </graphic>
                <tooltip>
-                  <Tooltip fx:id="onlineTranslateToolTip" text="Dịch online">
+                  <Tooltip fx:id="onlineTranslateToolTip" text="Online translate">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Tooltip>
                </tooltip></Button>
-                <Button fx:id="exportToFIleButton" contentDisplay="GRAPHIC_ONLY" layoutX="2.0" layoutY="274.0" mnemonicParsing="false" onAction="#exportToFileView" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <Button fx:id="exportToFIleButton" contentDisplay="GRAPHIC_ONLY" layoutX="2.0" layoutY="261.0" mnemonicParsing="false" onAction="#exportToFileView" style="-fx-background-color: transparent; -fx-cursor: hand;">
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -97,16 +97,16 @@
                         </ImageView>
                     </graphic>
                     <tooltip>
-                        <Tooltip fx:id="exportToFileToolTip" text="Lấy dữ liệu của từ điển">
+                        <Tooltip fx:id="exportToFileToolTip" text="Export data from database">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Tooltip>
                     </tooltip>
                 </Button>
-            <Button fx:id="historyButton" contentDisplay="GRAPHIC_ONLY" layoutX="4.8" layoutY="328.0" mnemonicParsing="false" onAction="#importFromFileView" prefHeight="48.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.leftAnchor="0.0">
+            <Button fx:id="historyButton" contentDisplay="GRAPHIC_ONLY" layoutX="-4.0" layoutY="316.0" mnemonicParsing="false" onAction="#importFromFileView" prefHeight="48.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.leftAnchor="-4.0">
                <tooltip>
-                  <Tooltip fx:id="editWordToolTip" text="Nạp dữ liệu từ file">
+                  <Tooltip fx:id="editWordToolTip" text="Add data from file">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -119,6 +119,22 @@
                      </image>
                   </ImageView>
                </graphic>
+            </Button>
+            <Button fx:id="ASButton" layoutX="-2.0" layoutY="383.0" mnemonicParsing="false" onAction="#synonymsAntonymsView" prefHeight="50.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.leftAnchor="-2.0">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/synonyms_antonyms.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip fx:id="aSToolTip" text="Search synonyms / antonyms of a word">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
             </Button>
             </children>
             <cursor>
