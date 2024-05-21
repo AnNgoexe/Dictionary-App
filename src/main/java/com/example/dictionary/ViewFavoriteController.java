@@ -1,7 +1,7 @@
-package com.controller;
+package com.example.dictionary;
 
 import api.AudioPlay;
-import base.MyDictionary;
+import base.dictionary.MyDictionary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

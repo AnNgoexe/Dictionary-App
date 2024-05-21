@@ -1,4 +1,4 @@
-package base;
+package base.dictionary;
 
 import java.io.*;
 import java.sql.Connection;
@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
-import base.databaseconnection.SQLiteConnection;
+import base.Word;
+import base.databaseconnection.DictionaryDatabaseConnection;
 import trie.Trie;
 
 public class Dictionary {
@@ -24,7 +25,7 @@ public class Dictionary {
      * Connect to the database.
      */
     public void connectToDatabase() {
-        this.connection = SQLiteConnection.getInstance().getConnection();
+        this.connection = DictionaryDatabaseConnection.getInstance().getConnection();
     }
 
     /**
@@ -166,7 +167,7 @@ public class Dictionary {
      * Close connection to database.
      */
     public void closeConnection() {
-        SQLiteConnection.getInstance().closeConnection();
+        DictionaryDatabaseConnection.getInstance().closeConnection();
     }
 
     /**

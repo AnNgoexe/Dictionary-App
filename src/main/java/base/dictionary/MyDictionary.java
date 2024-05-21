@@ -1,4 +1,4 @@
-package base;
+package base.dictionary;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

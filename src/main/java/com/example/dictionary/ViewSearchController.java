@@ -1,8 +1,8 @@
-package com.controller;
+package com.example.dictionary;
 
 import api.AudioPlay;
-import base.Dictionary;
-import base.MyDictionary;
+import base.dictionary.Dictionary;
+import base.dictionary.MyDictionary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -99,7 +99,7 @@ public class ViewSearchController {
             alert.setContentText("Successfully removed!");
             alert.showAndWait();
         } else {
-            MyDictionary.getDictionary().addWord(wordTarget, wordExplain);
+            MyDictionary.getDictionary().addWordForDictionary(wordTarget, wordExplain);
             isFavorite = true;
             favoriteButton.setStyle("-fx-background-color: rgb(209, 5, 39);");
 

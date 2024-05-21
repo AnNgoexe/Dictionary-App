@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane fx:id="viewFavoriteAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ViewFavoriteController">
+<AnchorPane fx:id="viewFavoriteAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.ViewFavoriteController">
    <children>
       <AnchorPane prefHeight="55.0" prefWidth="474.0" style="-fx-background-color: #D3D3D3;">
          <children>
@@ -43,6 +43,6 @@
             </Button>
          </children>
       </AnchorPane>
-      <WebView fx:id="webView" layoutY="52.0" onDragDetected="#viewWordController" prefHeight="521.0" prefWidth="474.0" />
+      <WebView fx:id="webView" layoutY="52.0" onDragDetected="#viewWordController" prefHeight="480.0" prefWidth="474.0" />
    </children>
 </AnchorPane>

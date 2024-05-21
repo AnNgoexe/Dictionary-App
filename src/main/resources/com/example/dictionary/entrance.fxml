@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="viewContainer" prefHeight="677.0" prefWidth="888.0" style="-fx-background-color: linear-gradient(to bottom, #00FF00, #FFFF00);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.EntranceController">
+   <children>
+      <Button fx:id="loginButton1" layoutX="32.0" layoutY="611.0" mnemonicParsing="false" onAction="#loginView" prefHeight="44.0" prefWidth="95.0" stylesheets="@../../../css/entrance.css" text="Log in">
+         <font>
+            <Font size="23.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="loginToolTip1" text="Đăng nhập" />
+         </tooltip>
+      </Button>
+      <Button fx:id="signupButton1" layoutX="275.0" layoutY="611.0" mnemonicParsing="false" onAction="#signupView" stylesheets="@../../../css/entrance.css" text="Sign up">
+         <font>
+            <Font size="23.0" />
+         </font>
+         <tooltip>
+            <Tooltip fx:id="signupToolTip1" text="Đăng ký" />
+         </tooltip>
+      </Button>
+      <Label layoutX="14.0" layoutY="2.0" prefHeight="104.0" prefWidth="462.0" text="English - Vietnamese dictionary">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="32.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.17998050153255463" green="0.10643275082111359" blue="0.7368420958518982" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <AnchorPane layoutX="489.0" layoutY="2.0" prefHeight="677.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="488.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="usernameField" layoutX="63.0" layoutY="339.0" prefHeight="40.0" prefWidth="318.0" promptText="Nhập tên người dùng" stylesheets="@../../../css/login.css" />
+            <PasswordField fx:id="passwordField1" layoutX="63.0" layoutY="421.0" prefHeight="34.0" prefWidth="318.0" promptText="Nhập mật khẩu" stylesheets="@../../../css/login.css" />
+            <Button fx:id="loginButton2" layoutX="125.0" layoutY="482.0" mnemonicParsing="false" onAction="#logInAccount" stylesheets="@../../../css/login.css" text="Login">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <tooltip>
+                  <Tooltip fx:id="loginToolTip2" text="Đăng nhập" />
+               </tooltip>
+            </Button>
+            <Label fx:id="loginLabel" layoutX="85.0" layoutY="263.0" prefHeight="54.0" prefWidth="230.0" text="ĐĂNG NHẬP" textFill="#dc142b">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="51.0" fitWidth="42.0" layoutX="14.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="51.0" fitWidth="42.0" layoutX="14.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/password.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="178.0" fitWidth="188.0" layoutX="111.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/login.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="loginStatusLabel" layoutX="63.0" layoutY="459.0" prefHeight="18.0" prefWidth="318.0" textFill="#df0b0b">
+            </Label>
+            <PasswordField fx:id="passwordField2" layoutX="63.0" layoutY="491.0" prefHeight="34.0" prefWidth="318.0" promptText="Xác nhận lại mật khẩu" stylesheets="@../../../css/login.css" />
+            <ImageView fx:id="passwordIconImage" fitHeight="51.0" fitWidth="42.0" layoutX="14.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/password.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="signupButton2" layoutX="125.0" layoutY="578.0" mnemonicParsing="false" onAction="#signUpAccount" stylesheets="@../../../css/login.css" text="Sign up">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <tooltip>
+                  <Tooltip fx:id="signupToolTip2" text="Đăng ký" />
+               </tooltip>
+            </Button>
+            <Label fx:id="signupLabel" layoutX="115.0" layoutY="263.0" prefHeight="54.0" prefWidth="170.0" text="ĐĂNG KÝ" textFill="#dc142b">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font></Label>
+            <Label fx:id="signupStatusLabel" layoutX="67.0" layoutY="533.0" prefHeight="18.0" prefWidth="318.0" textFill="#df0b0b" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="216.0" fitWidth="230.0" layoutX="102.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="107.0" layoutY="320.0" prefHeight="35.0" prefWidth="206.0" text="Tên người dùng" wrapText="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="355.0" prefHeight="26.0" prefWidth="391.0" text="Tên người dùng không được chứa ký tự đặc biệt hoặc khoảng trắng." wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="381.0" prefHeight="26.0" prefWidth="245.0" text="Tên người dùng không được để trống." wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="407.0" prefHeight="26.0" prefWidth="391.0" text="Tên người dùng phải có độ dài ít nhất 5 ký tự và không quá 20 ký tự" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="138.0" layoutY="433.0" prefHeight="35.0" prefWidth="113.0" text="Mật Khẩu" wrapText="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="468.0" prefHeight="26.0" prefWidth="391.0" text="Mật khẩu không được để trống." wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="494.0" prefHeight="26.0" prefWidth="391.0" text="Mật khẩu phải khớp với mật khẩu xác nhận" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="520.0" prefHeight="26.0" prefWidth="391.0" text="Mật khẩu không được chứa ký tự đặc biệt hoặc khoảng trắng" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="546.0" prefHeight="26.0" prefWidth="391.0" text="Mật khẩu phải có ít nhất một ký tự chữ cái và một ký tự số." wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="572.0" prefHeight="26.0" prefWidth="391.0" text="Mật khẩu phải có độ dài ít nhất 8 ký tự." wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -13,6 +13,8 @@ module com.example.dictionary {
     requires java.net.http;
     requires java.sql;
     requires freetts;
+    requires json;
+    requires mongo.java.driver;
 
     opens com.example.dictionary to javafx.fxml;
     exports com.example.dictionary;

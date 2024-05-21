@@ -2,32 +2,48 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFDCE3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFDCE3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.SearchController">
    <children>
-      <AnchorPane prefHeight="576.0" prefWidth="315.0" style="-fx-border-color: black; -fx-background-color: #33FFFF;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <TextField fx:id="searchBar" layoutX="14.0" layoutY="13.0" prefHeight="34.0" prefWidth="224.0" promptText="Search Something....." style="-fx-border-color: black; -fx-cursor: text;">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor></TextField>
-            <ListView fx:id="listWord" layoutX="14.0" layoutY="51.0" onEditStart="#listWordView" prefHeight="517.0" prefWidth="288.0" style="-fx-border-color: black;" styleClass="list_view_search" />
-            <Button fx:id="searchButton" layoutX="236.0" layoutY="13.0" mnemonicParsing="false" onAction="#searchWord" prefHeight="34.0" prefWidth="67.0" style="-fx-border-color: #000000;" text="Search">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <tooltip>
-                  <Tooltip fx:id="searchToolTip" text="Search">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Tooltip>
-               </tooltip></Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="searchAnchorPane" layoutX="347.0" layoutY="20.0" prefHeight="576.0" prefWidth="474.0" style="-fx-background-color: #FFFFFF;" />
+      <AnchorPane fx:id="searchAnchorPane" layoutX="347.0" layoutY="67.0" prefHeight="531.0" prefWidth="474.0" style="-fx-background-color: #FFFFFF;" />
+      <Button fx:id="searchButton" layoutX="721.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchWord" prefHeight="34.0" prefWidth="99.0" style="-fx-border-color: #000000;" text="Search" AnchorPane.topAnchor="21.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip fx:id="searchToolTip" text="Search">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Tooltip>
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="searchBar" layoutX="19.0" layoutY="21.0" prefHeight="34.0" prefWidth="703.0" promptText="Search Something....." style="-fx-border-color: black; -fx-cursor: text;">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <ListView fx:id="historyListView" layoutX="19.0" layoutY="94.0" prefHeight="503.0" prefWidth="288.0" />
+      <Button fx:id="historyButton" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#resetHistory" prefHeight="23.0" prefWidth="288.0" text="History">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/historyClock.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ListView fx:id="listWord" layoutX="18.0" layoutY="55.0" onEditStart="#listWordView" prefHeight="224.0" prefWidth="703.0" styleClass="list_view_search" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

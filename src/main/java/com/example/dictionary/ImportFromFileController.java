@@ -1,6 +1,6 @@
-package com.controller;
+package com.example.dictionary;
 
-import base.Dictionary;
+import base.dictionary.Dictionary;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

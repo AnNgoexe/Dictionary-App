@@ -1,0 +1,261 @@
+[{
+  "_id": {
+    "$oid": "661104a05c4a994458284929"
+  },
+  "question": "Identify the synonym of 'quick' from the options below:",
+  "options": [
+    "Fast",
+    "Slow",
+    "Heavy",
+    "Tall"
+  ],
+  "answer": "Fast"
+},
+{
+  "_id": {
+    "$oid": "661105a85c4a99445828492b"
+  },
+  "question": "Despite the bad weather, the event went ahead _______ planned, without any significant delays or problems.",
+  "options": [
+    "as",
+    "like",
+    "so",
+    "such"
+  ],
+  "answer": "as"
+},
+{
+  "_id": {
+    "$oid": "661106025c4a99445828492d"
+  },
+  "question": "He is very interested _______ learning new languages.",
+  "options": [
+    "in",
+    "on",
+    "at",
+    "with"
+  ],
+  "answer": "in"
+},
+{
+  "_id": {
+    "$oid": "6611062d5c4a99445828492f"
+  },
+  "question": "If it rains, we _______ go to the park.",
+  "options": [
+    "won't",
+    "will",
+    "would",
+    "shall"
+  ],
+  "answer": "won't"
+},
+{
+  "_id": {
+    "$oid": "661106485c4a994458284931"
+  },
+  "question": "Which word is similar in meaning to 'enormous'?",
+  "options": [
+    "Tiny",
+    "Huge",
+    "Weak",
+    "Angry"
+  ],
+  "answer": "Huge"
+},
+{
+  "_id": {
+    "$oid": "6611066d5c4a994458284933"
+  },
+  "question": "What does the idiom 'hit the nail on the head' mean?",
+  "options": [
+    "To do something exactly right",
+    "To start a new project",
+    "To make a mistake",
+    "To stop working"
+  ],
+  "answer": "To do something exactly right"
+},
+{
+  "_id": {
+    "$oid": "6611068b5c4a994458284935"
+  },
+  "question": "What is the opposite of 'ancient'?",
+  "options": [
+    "Modern",
+    "Old",
+    "Rare",
+    "Usual"
+  ],
+  "answer": "Modern"
+},
+{
+  "_id": {
+    "$oid": "661107255c4a994458284937"
+  },
+  "question": "Choose the correctly ordered question.",
+  "options": [
+    "Do you know where is she from?",
+    "Do you know where she is from?",
+    "Do you know where from she is?",
+    "Do you know is where she from?"
+  ],
+  "answer": "Do you know where she is from?"
+},
+{
+  "_id": {
+    "$oid": "661107375c4a994458284939"
+  },
+  "question": "Which sentence is in the passive voice?",
+  "options": [
+    "The chef cooks the meal.",
+    "The meal is cooked by the chef.",
+    "The chef will cook the meal.",
+    "The chef has been cooking the meal."
+  ],
+  "answer": "The meal is cooked by the chef."
+},
+{
+  "_id": {
+    "$oid": "661107475c4a99445828493b"
+  },
+  "question": "What does the phrasal verb 'look after' mean?",
+  "options": [
+    "To search for",
+    "To take care of",
+    "To ignore",
+    "To anticipate"
+  ],
+  "answer": "To take care of"
+},
+{
+  "_id": {
+    "$oid": "6611075c5c4a99445828493d"
+  },
+  "question": "We walked _____ the bridge at sunset.",
+  "options": [
+    "across",
+    "along",
+    "through",
+    "over"
+  ],
+  "answer": "across"
+},
+{
+  "_id": {
+    "$oid": "6611076a5c4a99445828493f"
+  },
+  "question": "He drives _____.",
+  "options": [
+    "careful",
+    "carefully",
+    "careless",
+    "more careful"
+  ],
+  "answer": "carefully"
+},
+{
+  "_id": {
+    "$oid": "661107805c4a994458284941"
+  },
+  "question": "Which country is known as the 'Land of the Rising Sun'?",
+  "options": [
+    "China",
+    "Australia",
+    "Japan",
+    "India"
+  ],
+  "answer": "Japan"
+},
+{
+  "_id": {
+    "$oid": "661107c25c4a994458284943"
+  },
+  "question": "Form a noun from the verb 'decide'.",
+  "options": [
+    "Decider",
+    "Decision",
+    "Deciding",
+    "Decidable"
+  ],
+  "answer": "Decision"
+},
+{
+  "_id": {
+    "$oid": "661107d05c4a994458284945"
+  },
+  "question": "Identify the word used incorrectly: 'Despite of the rain, we went for a walk.'",
+  "options": [
+    "Despite",
+    "of",
+    "the",
+    "went"
+  ],
+  "answer": "of"
+},
+{
+  "_id": {
+    "$oid": "661107de5c4a994458284947"
+  },
+  "question": "Which of the following words is spelled correctly?",
+  "options": [
+    "Embarass",
+    "Embaras",
+    "Embarrass",
+    "Embarase"
+  ],
+  "answer": "Embarrass"
+},
+{
+  "_id": {
+    "$oid": "6611081a5c4a994458284949"
+  },
+  "question": "Select the sentence that is grammatically correct.",
+  "options": [
+    "She don't like going to the gym.",
+    "She doesn't likes going to the gym.",
+    "She doesn't like go to the gym.",
+    "She doesn't like going to the gym."
+  ],
+  "answer": "She doesn't like going to the gym."
+},
+{
+  "_id": {
+    "$oid": "6611082b5c4a99445828494b"
+  },
+  "question": "Change the sentence to reported speech: 'I will help you tomorrow,' he said.",
+  "options": [
+    "He said he would help me the next day.",
+    "He said he will help me tomorrow.",
+    "He said he helps me tomorrow.",
+    "He said I will help you tomorrow."
+  ],
+  "answer": "He said he would help me the next day."
+},
+{
+  "_id": {
+    "$oid": "661108665c4a99445828494d"
+  },
+  "question": "Based on the sentence, what can be inferred about the protagonist's journey?",
+  "passage": "The protagonist embarked on a perilous journey across the desert, facing harsh winds and scarce water supplies.",
+  "options": [
+    "The journey was easy and comfortable.",
+    "The protagonist was well-prepared with abundant resources.",
+    "The journey was challenging and required overcoming obstacles.",
+    "The protagonist traveled with a large group for safety."
+  ],
+  "answer": "The journey was challenging and required overcoming obstacles."
+},
+{
+  "_id": {
+    "$oid": "661108765c4a99445828494f"
+  },
+  "question": "Convert the following sentence to passive voice: 'The committee approved the new policy.'",
+  "options": [
+    "The new policy was approved by the committee.",
+    "The new policy is approved by the committee.",
+    "The new policy had been approved by the committee.",
+    "The new policy has been approved by the committee."
+  ],
+  "answer": "The new policy was approved by the committee."
+}]

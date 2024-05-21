@@ -1,6 +1,6 @@
-package com.controller;
+package com.example.dictionary;
 
-import base.MyDictionary;
+import base.dictionary.MyDictionary;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,9 +59,20 @@ public class FavoriteController implements Initializable {
             String word = searchFavoriteBar.getText();
             if(!word.trim().isEmpty()){
                 List<String> a = MyDictionary.getDictionary().getWordsStartingWith(word);
-                ObservableList<String> observableList = FXCollections.observableArrayList(a);
-                listFavoriteWord.setItems(observableList);
+                if(!a.isEmpty()) {
+                    int maxRow = 9;
+                    int limit = Math.min(maxRow, a.size());
+                    List<String> limitedList = a.stream().limit(limit).toList();
+                    ObservableList<String> observableList = FXCollections.observableArrayList(limitedList);
+                    listFavoriteWord.setItems(observableList);
+                    listFavoriteWord.setPrefHeight(listFavoriteWord.getItems().size() * 24 + 2);
+                    listFavoriteWord.setVisible(true);
+                } else {
+                    listFavoriteWord.setVisible(false);
+                    listFavoriteWord.setItems(null);
+                }
             } else {
+                listFavoriteWord.setVisible(false);
                 listFavoriteWord.setItems(null);
             }
         });
@@ -70,6 +81,7 @@ public class FavoriteController implements Initializable {
             if (listFavoriteWord.getSelectionModel().getSelectedItem() != null) {
                 String selectedWord = listFavoriteWord.getSelectionModel().getSelectedItem();
                 searchFavoriteBar.setText(selectedWord);
+                listFavoriteWord.setVisible(false);
             }
         });
     }
@@ -101,5 +113,6 @@ public class FavoriteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listFavoriteWordView();
+        listFavoriteWord.setVisible(false);
     }
 }

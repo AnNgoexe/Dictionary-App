@@ -1,4 +1,4 @@
-package com.controller;
+package com.example.dictionary;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,7 +1,8 @@
-package com.controller;
+package com.example.dictionary;
 
-import base.Dictionary;
-import base.MyDictionary;
+import base.dictionary.Dictionary;
+import base.dictionary.MyDictionary;
+import base.history.SearchHistory;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +21,12 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
+    @FXML
+    private ListView<String> historyListView;
+
+    @FXML
+    private Button historyButton;
+
     FXMLLoader loader;
 
     @FXML
@@ -57,9 +64,20 @@ public class SearchController implements Initializable {
             String word = searchBar.getText();
             if(!word.trim().isEmpty()){
                 List<String> a = Dictionary.getDictionary().getWordsStartingWith(word);
-                ObservableList<String> observableList = FXCollections.observableArrayList(a);
-                listWord.setItems(observableList);
+                if(!a.isEmpty()) {
+                    int maxRow = 9;
+                    int limit = Math.min(maxRow, a.size());
+                    List<String> limitedList = a.stream().limit(limit).toList();
+                    ObservableList<String> observableList = FXCollections.observableArrayList(limitedList);
+                    listWord.setItems(observableList);
+                    listWord.setPrefHeight(listWord.getItems().size() * 24 + 2);
+                    listWord.setVisible(true);
+                } else {
+                    listWord.setVisible(false);
+                    listWord.setItems(null);
+                }
             } else {
+                listWord.setVisible(false);
                 listWord.setItems(null);
             }
         });
@@ -68,6 +86,7 @@ public class SearchController implements Initializable {
             if (listWord.getSelectionModel().getSelectedItem() != null) {
                 String selectedWord = listWord.getSelectionModel().getSelectedItem();
                 searchBar.setText(selectedWord);
+                listWord.setVisible(false);
             }
         });
     }
@@ -95,6 +114,11 @@ public class SearchController implements Initializable {
             boolean isFavorite = MyDictionary.getDictionary().searchWord(wordTarget.trim());
             viewSearchController.updateFavoriteButtonState(isFavorite);
 
+            SearchHistory.getHistory().addWordForHistory(wordTarget);
+            ObservableList<String> historyList = historyListView.getItems();
+            historyList.remove(wordTarget);
+            historyList.add(0, wordTarget);
+            historyListView.setItems(historyList);
         } else {
             searchAnchorPane.getChildren().setAll(new AnchorPane());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -103,10 +127,22 @@ public class SearchController implements Initializable {
             alert.setContentText("This word does not exist in the dictionary.");
             alert.showAndWait();
         }
+        listWord.setVisible(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listWordView();
+        listWord.setVisible(false);
+
+        List<String> wordHistory = SearchHistory.getHistory().getWordHistory();
+        ObservableList<String> observableHistory = FXCollections.observableArrayList(wordHistory);
+        historyListView.setItems(observableHistory);
+    }
+
+    @FXML
+    public void resetHistory(ActionEvent actionEvent) {
+        SearchHistory.getHistory().resetHistory();
+        historyListView.getItems().clear();
     }
 }
