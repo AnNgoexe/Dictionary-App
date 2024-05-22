@@ -33,7 +33,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <ListView fx:id="historyListView" layoutX="19.0" layoutY="94.0" prefHeight="503.0" prefWidth="288.0" />
+      <ListView fx:id="historyListView" layoutX="19.0" layoutY="94.0" onEditStart="#listHistoryView" prefHeight="503.0" prefWidth="288.0" />
       <Button fx:id="historyButton" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#resetHistory" prefHeight="23.0" prefWidth="288.0" text="History">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">

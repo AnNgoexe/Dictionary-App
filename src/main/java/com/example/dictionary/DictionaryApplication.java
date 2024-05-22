@@ -2,6 +2,7 @@ package com.example.dictionary;
 
 import base.dictionary.Dictionary;
 import base.dictionary.MyDictionary;
+import base.history.FavoriteHistory;
 import base.history.SearchHistory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,8 @@ public class DictionaryApplication extends Application {
         Dictionary.getDictionary().insertFromFile();
         MyDictionary.getDictionary().insertFromFile();
         SearchHistory.getHistory().insertFromFile();
+        FavoriteHistory.getHistory().insertFromFile();
+
         FXMLLoader fxmlLoader = new FXMLLoader(DictionaryApplication.class.getResource("entrance.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("English - Vietnamese dictionary");
@@ -25,6 +28,7 @@ public class DictionaryApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+        FavoriteHistory.getHistory().writeToFile();
     }
 
 }

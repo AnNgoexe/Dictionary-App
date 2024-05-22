@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="888.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="888.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.SceneController">
     <children>
         <AnchorPane prefHeight="62.0" prefWidth="888.0" style="-fx-background-color: gold;">
             <children>
@@ -88,7 +85,7 @@
                      </font>
                   </Tooltip>
                </tooltip></Button>
-                <Button fx:id="exportToFIleButton" contentDisplay="GRAPHIC_ONLY" layoutX="2.0" layoutY="261.0" mnemonicParsing="false" onAction="#exportToFileView" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                <Button fx:id="exportToFIleButton" contentDisplay="GRAPHIC_ONLY" layoutX="2.0" layoutY="261.0" mnemonicParsing="false" onAction="#exportToFileView" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.topAnchor="262.0">
                     <graphic>
                         <ImageView fitHeight="38.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -135,6 +132,15 @@
                      </font>
                   </Tooltip>
                </tooltip>
+            </Button>
+            <Button contentDisplay="GRAPHIC_ONLY" layoutY="442.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="41.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="444.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/game.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             </children>
             <cursor>

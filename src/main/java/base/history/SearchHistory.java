@@ -41,6 +41,7 @@ public class SearchHistory implements History {
     /**
      * Add words to the dictionary history from the database file.
      */
+    @Override
     public void insertFromFile() {
         try {
             String sql = "SELECT word FROM History ORDER BY time DESC";

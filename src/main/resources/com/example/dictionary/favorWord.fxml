@@ -6,35 +6,44 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #33FF4E;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.FavoriteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: #FFDCC3;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.FavoriteController">
    <children>
-      <AnchorPane layoutY="65.0" prefHeight="531.0" prefWidth="315.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="65.0" />
-      <AnchorPane fx:id="searchFavoriteAnchorPane" layoutX="346.0" layoutY="60.0" prefHeight="531.0" prefWidth="474.0" style="-fx-background-color: #FFFFFF;" />
-      <TextField fx:id="searchFavoriteBar" layoutX="27.0" layoutY="14.0" prefHeight="34.0" prefWidth="689.0" promptText="Search something....." style="-fx-border-color: black; -fx-cursor: text;">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </TextField>
-      <ListView fx:id="listFavoriteWord" layoutX="27.0" layoutY="60.0" onEditStart="#listFavoriteWordView" prefHeight="196.0" prefWidth="690.0" styleClass="list_view_search" />
-      <Button fx:id="searchFavoriteButton" layoutX="717.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchFavoriteWord" prefHeight="34.0" prefWidth="104.0" style="-fx-border-color: #000000;" text="Search">
+      <AnchorPane fx:id="searchAnchorPane" layoutX="347.0" layoutY="67.0" prefHeight="531.0" prefWidth="474.0" style="-fx-background-color: #FFFFFF;" />
+      <Button fx:id="searchButton" layoutX="721.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchWord" prefHeight="34.0" prefWidth="99.0" style="-fx-border-color: #000000;" text="Search" AnchorPane.topAnchor="21.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <tooltip>
-            <Tooltip fx:id="searchFavoriteToolTip" text="Search">
+            <Tooltip fx:id="searchToolTip" text="Search">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Tooltip>
          </tooltip>
          <graphic>
-            <ImageView fitHeight="21.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../image/search.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
+      <TextField fx:id="searchBar" layoutX="19.0" layoutY="21.0" prefHeight="34.0" prefWidth="703.0" promptText="Search Something....." style="-fx-border-color: black; -fx-cursor: text;">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <ListView fx:id="historyListView" layoutX="19.0" layoutY="94.0" onEditStart="#listHistoryView" prefHeight="503.0" prefWidth="288.0" />
+      <Button fx:id="historyButton" layoutX="19.0" layoutY="67.0" mnemonicParsing="false" onAction="#resetHistory" prefHeight="23.0" prefWidth="288.0" text="History">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/historyClock.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ListView fx:id="listWord" layoutX="18.0" layoutY="55.0" onEditStart="#listWordView" prefHeight="224.0" prefWidth="703.0" styleClass="list_view_search" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

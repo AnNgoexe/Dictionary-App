@@ -101,24 +101,7 @@ public class SearchController implements Initializable {
 
         String wordTarget = searchBar.getText().trim();
         if (Dictionary.getDictionary().searchWord(wordTarget)) {
-            String wordExplain = Dictionary.getDictionary().getWord(wordTarget);
-
-            this.loader = new FXMLLoader(getClass().getResource("viewSearch.fxml"));
-            AnchorPane secondaryAnchorPane = loader.load();
-            searchAnchorPane.getChildren().setAll(secondaryAnchorPane);
-
-            ViewSearchController viewSearchController = loader.getController();
-            viewSearchController.setWord(wordTarget, wordExplain);
-            viewSearchController.viewWordController();
-
-            boolean isFavorite = MyDictionary.getDictionary().searchWord(wordTarget.trim());
-            viewSearchController.updateFavoriteButtonState(isFavorite);
-
-            SearchHistory.getHistory().addWordForHistory(wordTarget);
-            ObservableList<String> historyList = historyListView.getItems();
-            historyList.remove(wordTarget);
-            historyList.add(0, wordTarget);
-            historyListView.setItems(historyList);
+            loadViewSearch(wordTarget);
         } else {
             searchAnchorPane.getChildren().setAll(new AnchorPane());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -133,6 +116,7 @@ public class SearchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listWordView();
+        listHistoryView();
         listWord.setVisible(false);
 
         List<String> wordHistory = SearchHistory.getHistory().getWordHistory();
@@ -144,5 +128,41 @@ public class SearchController implements Initializable {
     public void resetHistory(ActionEvent actionEvent) {
         SearchHistory.getHistory().resetHistory();
         historyListView.getItems().clear();
+    }
+
+    @FXML
+    public void listHistoryView() {
+        historyListView.setOnMouseClicked(event -> {
+            if (historyListView.getSelectionModel().getSelectedItem() != null) {
+                String selectedWord = historyListView.getSelectionModel().getSelectedItem();
+                searchBar.setText(selectedWord);
+                try {
+                    loadViewSearch(selectedWord);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+
+    public void loadViewSearch(String wordTarget) throws IOException {
+        String wordExplain = Dictionary.getDictionary().getWord(wordTarget);
+
+        this.loader = new FXMLLoader(getClass().getResource("viewSearch.fxml"));
+        AnchorPane secondaryAnchorPane = loader.load();
+        searchAnchorPane.getChildren().setAll(secondaryAnchorPane);
+
+        ViewSearchController viewSearchController = loader.getController();
+        viewSearchController.setWord(wordTarget, wordExplain);
+        viewSearchController.viewWordController();
+
+        boolean isFavorite = MyDictionary.getDictionary().searchWord(wordTarget.trim());
+        viewSearchController.updateFavoriteButtonState(isFavorite);
+
+        SearchHistory.getHistory().addWordForHistory(wordTarget);
+        ObservableList<String> historyList = historyListView.getItems();
+        historyList.remove(wordTarget);
+        historyList.add(0, wordTarget);
+        historyListView.setItems(historyList);
     }
 }

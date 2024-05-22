@@ -1,17 +1,14 @@
 package com.example.dictionary;
 
 import base.dictionary.MyDictionary;
+import base.history.FavoriteHistory;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -25,38 +22,54 @@ public class FavoriteController implements Initializable {
     FXMLLoader loader;
 
     @FXML
-    private ResourceBundle resources;
+    private AnchorPane searchAnchorPane;
 
     @FXML
-    private URL location;
+    private Button searchButton;
 
     @FXML
-    private TextField searchFavoriteBar;
+    private Tooltip searchToolTip;
 
     @FXML
-    private ListView<String> listFavoriteWord;
+    private Button historyButton;
 
     @FXML
-    private Tooltip searchFavoriteToolTip;
+    private ListView<String> historyListView;
 
     @FXML
-    private AnchorPane searchFavoriteAnchorPane;
+    private TextField searchBar;
 
     @FXML
-    private Button searchFavoriteButton;
+    private ListView<String> listWord;
 
     public void listToolTip() {
-        searchFavoriteToolTip.setShowDelay(Duration.ZERO);
+        searchToolTip.setShowDelay(Duration.ZERO);
     }
 
     public void setCurrentListWord(ObservableList<String> observableList) {
-        this.listFavoriteWord.setItems(observableList);
+        this.listWord.setItems(observableList);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        listWordView();
+        listWord.setVisible(false);
+
+        List<String> wordHistory = FavoriteHistory.getHistory().getWordHistory();
+        ObservableList<String> observableHistory = FXCollections.observableArrayList(wordHistory);
+        historyListView.setItems(observableHistory);
     }
 
     @FXML
-    public void listFavoriteWordView() {
-        searchFavoriteBar.addEventHandler(KeyEvent.KEY_RELEASED, event->{
-            String word = searchFavoriteBar.getText();
+    public void resetHistory() {
+        FavoriteHistory.getHistory().resetHistory();
+        historyListView.getItems().clear();
+    }
+
+    @FXML
+    public void listWordView() {
+        searchBar.addEventHandler(KeyEvent.KEY_RELEASED,event->{
+            String word = searchBar.getText();
             if(!word.trim().isEmpty()){
                 List<String> a = MyDictionary.getDictionary().getWordsStartingWith(word);
                 if(!a.isEmpty()) {
@@ -64,55 +77,83 @@ public class FavoriteController implements Initializable {
                     int limit = Math.min(maxRow, a.size());
                     List<String> limitedList = a.stream().limit(limit).toList();
                     ObservableList<String> observableList = FXCollections.observableArrayList(limitedList);
-                    listFavoriteWord.setItems(observableList);
-                    listFavoriteWord.setPrefHeight(listFavoriteWord.getItems().size() * 24 + 2);
-                    listFavoriteWord.setVisible(true);
+                    listWord.setItems(observableList);
+                    listWord.setPrefHeight(listWord.getItems().size() * 24 + 2);
+                    listWord.setVisible(true);
                 } else {
-                    listFavoriteWord.setVisible(false);
-                    listFavoriteWord.setItems(null);
+                    listWord.setVisible(false);
+                    listWord.setItems(null);
                 }
             } else {
-                listFavoriteWord.setVisible(false);
-                listFavoriteWord.setItems(null);
+                listWord.setVisible(false);
+                listWord.setItems(null);
             }
         });
 
-        listFavoriteWord.setOnMouseClicked(event -> {
-            if (listFavoriteWord.getSelectionModel().getSelectedItem() != null) {
-                String selectedWord = listFavoriteWord.getSelectionModel().getSelectedItem();
-                searchFavoriteBar.setText(selectedWord);
-                listFavoriteWord.setVisible(false);
+        listWord.setOnMouseClicked(event -> {
+            if (listWord.getSelectionModel().getSelectedItem() != null) {
+                String selectedWord = listWord.getSelectionModel().getSelectedItem();
+                searchBar.setText(selectedWord);
+                listWord.setVisible(false);
             }
         });
     }
 
     @FXML
-    public void searchFavoriteWord(ActionEvent event) throws IOException {
-        String originalColor = searchFavoriteButton.getStyle();
-        searchFavoriteButton.setStyle("-fx-background-color: #87CEEB");
+    public void searchWord() throws IOException {
+        String originalColor = searchButton.getStyle();
+        searchButton.setStyle("-fx-background-color: #87CEEB");
         PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
-        pause.setOnFinished(e -> searchFavoriteButton.setStyle(originalColor));
+        pause.setOnFinished(e -> searchButton.setStyle(originalColor));
         pause.play();
 
-        String wordTarget = searchFavoriteBar.getText().trim();
+        String wordTarget = searchBar.getText().trim();
         if (MyDictionary.getDictionary().searchWord(wordTarget)) {
-            String wordExplain = MyDictionary.getDictionary().getWord(wordTarget);
-
-            this.loader = new FXMLLoader(getClass().getResource("viewFavor.fxml"));
-            AnchorPane secondaryAnchorPane = loader.load();
-            searchFavoriteAnchorPane.getChildren().setAll(secondaryAnchorPane);
-
-            ViewFavoriteController viewFavoriteController = loader.getController();
-            viewFavoriteController.setWord(wordTarget, wordExplain);
-            viewFavoriteController.viewWordController();
+            loadViewFavorite(wordTarget);
         } else {
-            searchFavoriteAnchorPane.getChildren().setAll(new AnchorPane());
+            searchAnchorPane.getChildren().setAll(new AnchorPane());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Notification!");
+            alert.setHeaderText("Non-existence:");
+            alert.setContentText("This word does not exist in your dictionary.");
+            alert.showAndWait();
         }
+        listWord.setVisible(false);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        listFavoriteWordView();
-        listFavoriteWord.setVisible(false);
+    @FXML
+    public void listHistoryView(ListView.EditEvent<String> stringEditEvent) {
+        historyListView.setOnMouseClicked(event -> {
+            if (historyListView.getSelectionModel().getSelectedItem() != null) {
+                String selectedWord = historyListView.getSelectionModel().getSelectedItem();
+                searchBar.setText(selectedWord);
+                try {
+                    loadViewFavorite(selectedWord);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+
+    public void loadViewFavorite(String wordTarget) throws IOException {
+        String wordExplain = MyDictionary.getDictionary().getWord(wordTarget);
+
+        this.loader = new FXMLLoader(getClass().getResource("viewFavor.fxml"));
+        AnchorPane secondaryAnchorPane = loader.load();
+        searchAnchorPane.getChildren().setAll(secondaryAnchorPane);
+
+        ViewFavoriteController viewFavoriteController = loader.getController();
+        viewFavoriteController.setWord(wordTarget, wordExplain);
+        viewFavoriteController.viewWordController();
+
+        if(FavoriteHistory.getHistory().searchWord(wordTarget)) {
+            FavoriteHistory.getHistory().deleteWordForHistory(wordTarget);
+        }
+        FavoriteHistory.getHistory().addWordForHistory(wordTarget);
+        ObservableList<String> historyList = historyListView.getItems();
+        historyList.remove(wordTarget);
+        historyList.add(0, wordTarget);
+        historyListView.setItems(historyList);
     }
 }
