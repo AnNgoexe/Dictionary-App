@@ -3,23 +3,110 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="616.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.GameController">
+<AnchorPane prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.GameController">
    <children>
-      <Button layoutX="40.0" layoutY="433.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="350.0" />
-      <Button layoutX="450.0" layoutY="314.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="350.0" />
-      <Button layoutX="40.0" layoutY="314.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="350.0" />
-      <Button layoutX="450.0" layoutY="433.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="350.0" />
-      <TextArea layoutX="38.0" layoutY="95.0" prefHeight="190.0" prefWidth="762.0" />
-      <Label layoutX="716.0" layoutY="26.0" prefHeight="46.0" prefWidth="63.0" />
-      <Button layoutX="40.0" layoutY="31.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="63.0" text="Button" />
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="717.0" layoutY="545.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button" />
-      <ProgressBar layoutX="199.0" layoutY="27.0" prefHeight="35.0" prefWidth="439.0" progress="0.0" />
-      <HBox layoutX="110.0" layoutY="524.0" prefHeight="58.0" prefWidth="408.0" />
-      <ImageView fitHeight="49.0" fitWidth="55.0" layoutX="758.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../image/next.png" />
-         </image>
-      </ImageView>
+      <Button id="option" fx:id="optionCButton" layoutX="40.0" layoutY="433.0" mnemonicParsing="false" onAction="#chooseCOption" prefHeight="90.0" prefWidth="350.0" styleClass="option" stylesheets="@../../../css/game.css" />
+      <Button id="option" fx:id="optionBButton" layoutX="450.0" layoutY="314.0" mnemonicParsing="false" onAction="#chooseBOption" prefHeight="90.0" prefWidth="350.0" styleClass="option" stylesheets="@../../../css/game.css" />
+      <Button fx:id="optionAButton" layoutX="40.0" layoutY="314.0" mnemonicParsing="false" onAction="#chooseAOption" prefHeight="90.0" prefWidth="350.0" styleClass="option" stylesheets="@../../../css/game.css" />
+      <Button id="option" fx:id="optionDButton" layoutX="450.0" layoutY="433.0" mnemonicParsing="false" onAction="#chooseDOption" prefHeight="90.0" prefWidth="350.0" styleClass="option" stylesheets="@../../../css/game.css" />
+      <TextArea fx:id="exerciseTextArea" layoutX="38.0" layoutY="95.0" prefHeight="190.0" prefWidth="762.0" stylesheets="@../../../css/game.css" />
+      <Label fx:id="scoreLabel" layoutX="736.0" layoutY="25.0" prefHeight="46.0" prefWidth="63.0" />
+      <Button fx:id="muteButton" contentDisplay="GRAPHIC_ONLY" layoutX="40.0" layoutY="31.0" mnemonicParsing="false" onAction="#mute" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: orange; -fx-cursor: hand;" text="Button">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/unmute.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Mute" />
+         </tooltip></Button>
+      <Button fx:id="unMuteButton" contentDisplay="GRAPHIC_ONLY" layoutX="63.0" layoutY="31.0" mnemonicParsing="false" onAction="#unMute" prefHeight="35.0" prefWidth="46.0" style="-fx-cursor: hand; -fx-background-color: orange;" styleClass="sound" text="Button">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/mute.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Unmute" />
+         </tooltip></Button>
+      <ProgressBar fx:id="timeProgressBar" layoutX="123.0" layoutY="31.0" onDragDetected="#editTimeProgress" prefHeight="35.0" prefWidth="585.0" progress="0.0" style="-fx-background-color: red;" />
+      <HBox layoutX="136.0" layoutY="545.0" prefHeight="46.0" prefWidth="218.0" style="-fx-spacing: 30;">
+         <children>
+            <Button fx:id="moreHeartHelpButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#moreHeartHelp" style="-fx-cursor: hand; -fx-background-color: white;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/help3.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="More lives" />
+               </tooltip></Button>
+            <Button fx:id="moreTimeHelpButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#moreTimeHelp" style="-fx-background-color: white; -fx-cursor: hand;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/help2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="More time" />
+               </tooltip></Button>
+            <Button fx:id="fiftyFiftyHelpButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#fiftyFiftyHelp" style="-fx-background-color: white; -fx-cursor: hand;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/help1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="50 / 50" />
+               </tooltip></Button>
+         </children></HBox>
+      <Button fx:id="nextButton" contentDisplay="GRAPHIC_ONLY" layoutX="746.0" layoutY="540.0" mnemonicParsing="false" onAction="#nextExercise" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button">
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/next.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Next" />
+         </tooltip>
+      </Button>
+      <Label layoutX="46.0" layoutY="542.0" text="Help">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <HBox layoutX="558.0" layoutY="540.0" prefHeight="54.0" prefWidth="150.0">
+         <children>
+            <ImageView fx:id="firstHeart" fitHeight="56.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/help3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="secondHeart" fitHeight="55.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/help3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="thirdHeart" fitHeight="79.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/help3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

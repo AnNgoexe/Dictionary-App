@@ -1,0 +1,34 @@
+.option {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, yellow);
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-border-color: #388E3C;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+}
+
+.option:hover {
+    -fx-background-color: #43A047;
+    -fx-cursor: hand;
+}
+
+.option:pressed {
+    -fx-background-color: yellow;
+}
+
+.text-area {
+    -fx-background-color: rgb(12, 15, 100);
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+}
+
+.text-area:focused {
+    -fx-border-color: #4CAF50;
+}
