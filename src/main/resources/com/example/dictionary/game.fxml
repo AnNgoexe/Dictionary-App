@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.GameController">
+<AnchorPane fx:id="viewContainer" prefHeight="616.0" prefWidth="834.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.GameController">
    <children>
       <Button id="option" fx:id="optionCButton" layoutX="40.0" layoutY="433.0" mnemonicParsing="false" onAction="#chooseCOption" prefHeight="90.0" prefWidth="350.0" styleClass="option" stylesheets="@../../../css/game.css" wrapText="true" />
       <Button id="option" fx:id="optionBButton" layoutX="450.0" layoutY="314.0" mnemonicParsing="false" onAction="#chooseBOption" prefHeight="90.0" prefWidth="350.0" styleClass="option" stylesheets="@../../../css/game.css" wrapText="true" />
@@ -107,7 +107,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <HBox fx:id="heartHBox" layoutX="558.0" layoutY="540.0" prefHeight="54.0" prefWidth="150.0">
+      <HBox fx:id="heartHBox" layoutX="472.0" layoutY="540.0" prefHeight="54.0" prefWidth="150.0">
          <children>
             <ImageView fitHeight="56.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -126,5 +126,17 @@
             </ImageView>
          </children>
       </HBox>
+      <Button fx:id="quitButton" contentDisplay="GRAPHIC_ONLY" layoutX="667.0" layoutY="541.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="44.0" prefWidth="55.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image/quit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Quit game" />
+         </tooltip>
+      </Button>
    </children>
 </AnchorPane>

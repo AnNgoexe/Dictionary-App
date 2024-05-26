@@ -6,6 +6,7 @@ public class User {
     private int heart;
     private static User instance;
     public final int MAX_HEART = 3;
+    public final int MIN_SCORE = 0;
 
     User(String name) {
         this.name = name;
@@ -63,5 +64,26 @@ public class User {
      */
     public void increaseHeart() {
         heart++;
+    }
+
+    /**
+     * Set the name.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Set the score.
+     */
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    /**
+     * Set the heart.
+     */
+    public void setHeart(int heart) {
+        this.heart = heart;
     }
 }
