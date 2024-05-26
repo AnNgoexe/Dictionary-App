@@ -4,18 +4,26 @@
     -fx-padding: 10px 20px;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
-    -fx-border-color: #388E3C;
+    -fx-border-color: transparent;
     -fx-border-width: 2px;
     -fx-cursor: hand;
 }
 
 .option:hover {
-    -fx-background-color: #43A047;
+    -fx-border-color: purple;
     -fx-cursor: hand;
 }
 
 .option:pressed {
     -fx-background-color: yellow;
+}
+
+.correct {
+    -fx-background-color: green;
+}
+
+.incorrect {
+    -fx-background-color: red;
 }
 
 .text-area {

@@ -15,6 +15,7 @@ module com.example.dictionary {
     requires freetts;
     requires json;
     requires mongo.java.driver;
+    requires javafx.media;
 
     opens com.example.dictionary to javafx.fxml;
     exports com.example.dictionary;

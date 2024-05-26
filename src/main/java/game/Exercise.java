@@ -103,6 +103,19 @@ public class Exercise {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    /**
+     * Print the question.
+     */
+    @Override
+    public String toString() {
+        return "Question: " + question + "\n" +
+                "Option A: " + optionA + "\n" +
+                "Option B: " + optionB + "\n" +
+                "Option C: " + optionC + "\n" +
+                "Option D: " + optionD + "\n" +
+                "Answer: " + answer;
+    }
 }
 
 

@@ -236,8 +236,7 @@
   "_id": {
     "$oid": "661108665c4a99445828494d"
   },
-  "question": "Based on the sentence, what can be inferred about the protagonist's journey?",
-  "passage": "The protagonist embarked on a perilous journey across the desert, facing harsh winds and scarce water supplies.",
+  "question": "Based on the sentence, what can be inferred about the protagonist's journey? \nThe protagonist embarked on a perilous journey across the desert, facing harsh winds and scarce water supplies.",
   "options": [
     "The journey was easy and comfortable.",
     "The protagonist was well-prepared with abundant resources.",

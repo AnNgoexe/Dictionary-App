@@ -101,7 +101,7 @@
                         </Tooltip>
                     </tooltip>
                 </Button>
-            <Button fx:id="historyButton" contentDisplay="GRAPHIC_ONLY" layoutX="-4.0" layoutY="316.0" mnemonicParsing="false" onAction="#importFromFileView" prefHeight="48.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.leftAnchor="-4.0">
+            <Button fx:id="importButton" contentDisplay="GRAPHIC_ONLY" layoutX="-4.0" layoutY="316.0" mnemonicParsing="false" onAction="#importFromFileView" prefHeight="48.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.leftAnchor="-4.0">
                <tooltip>
                   <Tooltip fx:id="editWordToolTip" text="Add data from file">
                      <font>
@@ -133,7 +133,7 @@
                   </Tooltip>
                </tooltip>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutY="442.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="41.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Button" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="444.0">
+            <Button fx:id="gameButton" contentDisplay="GRAPHIC_ONLY" layoutY="442.0" mnemonicParsing="false" onAction="#gameView" prefHeight="40.0" prefWidth="41.0" style="-fx-background-color: transparent; -fx-cursor: hand;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="444.0">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -141,15 +141,24 @@
                      </image>
                   </ImageView>
                </graphic>
+                <tooltip>
+                    <Tooltip fx:id="gameToolTip" text="Learning through quizz game">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                    </Tooltip>
+                </tooltip>
             </Button>
             </children>
             <cursor>
                 <Cursor fx:constant="DEFAULT" />
-            </cursor></AnchorPane>
+            </cursor>
+        </AnchorPane>
         <AnchorPane fx:id="viewContainer" layoutX="56.0" layoutY="63.0" prefHeight="616.0" prefWidth="834.0" style="-fx-border-color: transparent;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
             <cursor>
                 <Cursor fx:constant="DEFAULT" />
-            </cursor></AnchorPane>
+            </cursor>
+        </AnchorPane>
     </children>
     <cursor>
         <Cursor fx:constant="SW_RESIZE" />

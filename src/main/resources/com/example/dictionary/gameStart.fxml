@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="viewContainer" prefHeight="616.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.GameStartController">
+   <children>
+      <ImageView fitHeight="582.0" fitWidth="834.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/quizz.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="544.0" prefHeight="72.0" prefWidth="834.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <Button fx:id="playButton" layoutX="360.0" layoutY="10.0" mnemonicParsing="false" onAction="#startGame" prefHeight="45.0" prefWidth="114.0" style="-fx-background-color: pink; -fx-cursor: hand;" text="Play" textFill="#d71919">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

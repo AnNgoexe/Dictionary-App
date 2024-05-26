@@ -15,6 +15,12 @@ import java.util.ResourceBundle;
 
 public class SceneController implements Initializable {
     @FXML
+    private Button gameButton;
+
+    @FXML
+    private Tooltip gameToolTip;
+
+    @FXML
     private Button ASButton;
 
     @FXML
@@ -27,7 +33,7 @@ public class SceneController implements Initializable {
     private URL location;
 
     @FXML
-    private Button historyButton;
+    private Button importButton;
 
     @FXML
     private Tooltip editWordToolTip;
@@ -73,6 +79,7 @@ public class SceneController implements Initializable {
         favoriteToolTip.setShowDelay(Duration.ZERO);
         onlineTranslateToolTip.setShowDelay(Duration.ZERO);
         aSToolTip.setShowDelay(Duration.ZERO);
+        gameToolTip.setShowDelay(Duration.ZERO);
     }
 
     @Override
@@ -84,11 +91,13 @@ public class SceneController implements Initializable {
     public void addView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("addWord.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }
 
     @FXML
     public void searchView(ActionEvent actionEvent) throws IOException {
+        viewContainer.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("searchWord.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
@@ -98,6 +107,7 @@ public class SceneController implements Initializable {
     public void onlineTranslateView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("online.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }
 
@@ -105,6 +115,7 @@ public class SceneController implements Initializable {
     public void exportToFileView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("exportToFile.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }
 
@@ -112,6 +123,7 @@ public class SceneController implements Initializable {
     public void importFromFileView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("importFromFile.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }
 
@@ -119,6 +131,7 @@ public class SceneController implements Initializable {
     public void favoriteView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("favorWord.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }
 
@@ -126,6 +139,15 @@ public class SceneController implements Initializable {
     public void synonymsAntonymsView(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("showASWord.fxml"));
         AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
+        viewContainer.getChildren().setAll(secondaryAnchorPane);
+    }
+
+    @FXML
+    public void gameView(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gameStart.fxml"));
+        AnchorPane secondaryAnchorPane = loader.load();
+        viewContainer.getChildren().clear();
         viewContainer.getChildren().setAll(secondaryAnchorPane);
     }
 }

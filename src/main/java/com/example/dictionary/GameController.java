@@ -1,20 +1,43 @@
 package com.example.dictionary;
 
+import game.Exercise;
+import game.GameLogic;
+import game.User;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
-public class GameController {
-    public TextArea exerciseTextArea;
-    
-    public Label scoreLabel;
-    public ProgressBar timeProgressBar;
-    public Button nextButton;
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class GameController implements Initializable {
+    @FXML
+    private HBox heartHBox;
+
+    @FXML
+    private TextArea exerciseTextArea;
+
+    @FXML
+    private Label scoreLabel;
+
+    @FXML
+    private ProgressBar timeProgressBar;
+
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private Button consultHelpButton;
 
     @FXML
     private Button optionCButton;
@@ -35,15 +58,6 @@ public class GameController {
     private Button unMuteButton;
 
     @FXML
-    private ImageView secondHeart;
-
-    @FXML
-    private ImageView thirdHeart;
-
-    @FXML
-    private ImageView firstHeart;
-
-    @FXML
     private Button moreHeartHelpButton;
 
     @FXML
@@ -52,50 +66,241 @@ public class GameController {
     @FXML
     private Button moreTimeHelpButton;
 
-    @FXML
-    public void moreHeartHelp(ActionEvent actionEvent) {
+    private MediaPlayer backgroundMusicPlayer;
 
+    private User user;
+
+    private GameLogic gameLogic;
+
+    private Exercise exercise;
+
+    private boolean isChosen = false;
+
+    private Timeline timeline;
+
+    private final Duration duration = Duration.seconds(30);
+
+    private double timeElapsed = 0;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String musicFile = Paths.get("src/main/resources/sound/music.wav").toUri().toString();
+        Media media = new Media(musicFile);
+        backgroundMusicPlayer = new MediaPlayer(media);
+        backgroundMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        backgroundMusicPlayer.play();
+        user = User.getInstance("Player");
+        gameLogic = new GameLogic(user);
+
+        unMuteButton.setVisible(false);
+        scoreLabel.setText(Integer.toString(user.getScore()).concat(" / 15"));
+        exercise = gameLogic.getNextExercise();
+        if (exercise != null) {
+            exerciseTextArea.setText(exercise.getQuestion());
+            optionAButton.setText(exercise.getOptionA());
+            optionBButton.setText(exercise.getOptionB());
+            optionCButton.setText(exercise.getOptionC());
+            optionDButton.setText(exercise.getOptionD());
+        }
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), this::editTimeProgress));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
-    @FXML
-    public void chooseCOption(ActionEvent actionEvent) {
-
-    }
-
-    @FXML
-    public void chooseBOption(ActionEvent actionEvent) {
-
+    private void playSound(boolean correct) {
+        String musicFile = correct ? "src/main/resources/sound/correct.mp3" : "src/main/resources/sound/incorrect.wav";
+        Media media = new Media(Paths.get(musicFile).toUri().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setOnEndOfMedia(() -> {
+            mediaPlayer.stop();
+            mediaPlayer.setCycleCount(1);
+        });
+        mediaPlayer.play();
     }
 
     @FXML
     public void chooseAOption(ActionEvent actionEvent) {
+        if (!isChosen) {
+            String selectedOption = optionAButton.getText();
+            if(gameLogic.checkAnswer(exercise, selectedOption)) {
+                gameLogic.increaseScore();
+                scoreLabel.setText(Integer.toString(user.getScore()).concat(" / 15"));
+                optionAButton.getStyleClass().add("correct");
+            } else {
+                optionAButton.getStyleClass().add("incorrect");
+                gameLogic.decreaseHeart();
+                int pos = user.getHeart();
+                heartHBox.getChildren().get(pos).setVisible(false);
+            }
+            playSound(gameLogic.checkAnswer(exercise, selectedOption));
+            isChosen = true;
+        }
+    }
 
+    @FXML
+    public void chooseBOption(ActionEvent actionEvent) {
+        if (!isChosen) {
+            String selectedOption = optionBButton.getText();
+            if(gameLogic.checkAnswer(exercise, selectedOption)) {
+                gameLogic.increaseScore();
+                scoreLabel.setText(Integer.toString(user.getScore()).concat(" / 15"));
+                optionBButton.getStyleClass().add("correct");
+            } else {
+                optionBButton.getStyleClass().add("incorrect");
+                gameLogic.decreaseHeart();
+                int pos = user.getHeart();
+                heartHBox.getChildren().get(pos).setVisible(false);
+            }
+            playSound(gameLogic.checkAnswer(exercise, selectedOption));
+            isChosen = true;
+        }
+    }
+
+    @FXML
+    public void chooseCOption(ActionEvent actionEvent) {
+        if (!isChosen) {
+            String selectedOption = optionCButton.getText();
+            if(gameLogic.checkAnswer(exercise, selectedOption)) {
+                optionCButton.getStyleClass().add("correct");
+                gameLogic.increaseScore();
+                scoreLabel.setText(Integer.toString(user.getScore()).concat(" / 15"));
+            } else {
+                optionCButton.getStyleClass().add("incorrect");
+                gameLogic.decreaseHeart();
+                int pos = user.getHeart();
+                heartHBox.getChildren().get(pos).setVisible(false);
+            }
+            playSound(gameLogic.checkAnswer(exercise, selectedOption));
+            isChosen = true;
+        }
     }
 
     @FXML
     public void chooseDOption(ActionEvent actionEvent) {
-
+        if (!isChosen) {
+            String selectedOption = optionDButton.getText();
+            if(gameLogic.checkAnswer(exercise, selectedOption)) {
+                gameLogic.increaseScore();
+                scoreLabel.setText(Integer.toString(user.getScore()).concat(" / 15"));
+                optionDButton.getStyleClass().add("correct");
+            } else {
+                optionDButton.getStyleClass().add("incorrect");
+                gameLogic.decreaseHeart();
+                int pos = user.getHeart();
+                heartHBox.getChildren().get(pos).setVisible(false);
+            }
+            playSound(gameLogic.checkAnswer(exercise, selectedOption));
+            isChosen = true;
+        }
     }
 
+    @FXML
     public void moreTimeHelp(ActionEvent actionEvent) {
 
     }
 
+    private void removeAnswerFromButtons(String removedAnswer) {
+        if (optionAButton.getText().equals(removedAnswer)) {
+            optionAButton.setText("");
+        }
+        if (optionBButton.getText().equals(removedAnswer)) {
+            optionBButton.setText("");
+        }
+        if (optionCButton.getText().equals(removedAnswer)) {
+            optionCButton.setText("");
+        }
+        if (optionDButton.getText().equals(removedAnswer)) {
+            optionDButton.setText("");
+        }
+    }
+
+    @FXML
     public void fiftyFiftyHelp(ActionEvent actionEvent) {
-        
+        if (!isChosen) {
+            List<String> wrongAnswers = gameLogic.getTwoRandomWrongAnswers(exercise);
+            String removedAnswer1 = wrongAnswers.get(0);
+            String removedAnswer2 = wrongAnswers.get(1);
+            removeAnswerFromButtons(removedAnswer1);
+            removeAnswerFromButtons(removedAnswer2);
+            fiftyFiftyHelpButton.setDisable(true);
+        }
     }
 
+    @FXML
+    public void consultHelp(ActionEvent actionEvent) {
+        if (!isChosen) {
+            List<String> recommendedAnswers = gameLogic.getThreeRandomAnswersWithAtLeastOneCorrect(exercise);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Consult Help");
+            alert.setHeaderText("Recommended Answers");
+            alert.setContentText("1. " + recommendedAnswers.get(0) + "\n"
+                    + "2. " + recommendedAnswers.get(1) + "\n"
+                    + "3. " + recommendedAnswers.get(2));
+            alert.showAndWait();
+            consultHelpButton.setDisable(true);
+        }
+    }
+
+    @FXML
+    public void moreHeartHelp(ActionEvent actionEvent) {
+        if (user.getHeart() < user.MAX_HEART) {
+            System.out.println(user.getHeart());
+            user.increaseHeart();
+            System.out.println(user.getHeart());
+            int pos = user.getHeart();
+            heartHBox.getChildren().get(pos - 1).setVisible(true);
+            moreHeartHelpButton.setDisable(true);
+        }
+    }
+
+    @FXML
     public void unMute(ActionEvent actionEvent) {
-        
+        muteButton.setVisible(true);
+        unMuteButton.setVisible(false);
+
+        Duration pausedTime = backgroundMusicPlayer.getCurrentTime();
+        backgroundMusicPlayer.seek(pausedTime);
+        backgroundMusicPlayer.play();
     }
 
+    @FXML
     public void mute(ActionEvent actionEvent) {
-        
+        muteButton.setVisible(false);
+        unMuteButton.setVisible(true);
+        backgroundMusicPlayer.pause();
     }
 
-    public void editTimeProgress(MouseEvent mouseEvent) {
+    @FXML
+    public void editTimeProgress(ActionEvent mouseEvent) {
+        timeElapsed += 1;
+        double progress = timeElapsed / duration.toSeconds();
+        if (progress >= 1.0) {
+            progress = 1.0;
+        }
+        timeProgressBar.setProgress(progress);
     }
 
+    @FXML
     public void nextExercise(ActionEvent actionEvent) {
+        timeElapsed = -1;
+        timeline.stop();
+        timeline.play();
+
+        exercise = gameLogic.getNextExercise();
+        if (exercise != null) {
+
+            exerciseTextArea.setText(exercise.getQuestion());
+            optionAButton.getStyleClass().removeAll("correct", "incorrect");
+            optionBButton.getStyleClass().removeAll("correct", "incorrect");
+            optionCButton.getStyleClass().removeAll("correct", "incorrect");
+            optionDButton.getStyleClass().removeAll("correct", "incorrect");
+
+            optionAButton.setText(exercise.getOptionA());
+            optionBButton.setText(exercise.getOptionB());
+            optionCButton.setText(exercise.getOptionC());
+            optionDButton.setText(exercise.getOptionD());
+        }
+        isChosen = false;
     }
 }

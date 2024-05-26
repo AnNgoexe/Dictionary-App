@@ -36,11 +36,12 @@ public class ExerciseManagement {
      */
     private Exercise convertDocumentToExercise(Document doc) {
         String question = doc.getString("question");
-        String answerA = doc.getString("answerA");
-        String answerB = doc.getString("answerB");
-        String answerC = doc.getString("answerC");
-        String answerD = doc.getString("answerD");
+        List<String> options = (List<String>) doc.get("options");
+        String optionA = options.get(0);
+        String optionB = options.get(1);
+        String optionC = options.get(2);
+        String optionD = options.get(3);
         String answer = doc.getString("answer");
-        return new Exercise(question, answerA, answerB, answerC, answerD, answer);
+        return new Exercise(question, optionA, optionB, optionC, optionD, answer);
     }
 }
