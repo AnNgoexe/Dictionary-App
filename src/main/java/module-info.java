@@ -18,5 +18,6 @@ module com.example.dictionary {
     requires javafx.media;
 
     opens com.example.dictionary to javafx.fxml;
+
     exports com.example.dictionary;
 }
